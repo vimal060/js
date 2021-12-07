@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>todo app</title>
+    </head>
+    <style>
+        #div1{
+            width: 700px;
+            height: 700px;
+            background-color: 	 #f2f2f2;
+            margin-top: 100px;
+            margin-left: 600px;
+        }
+        #input1{
+            width: 400px;
+            height: 40px;
+            margin-left: 130px;
+            font-size: 1vw;
+            background-color: 	 #e6f5ff;
+       
+            
+        }
+
+        #button1{
+            width: 100px;
+            height: 30px;
+            margin-left: 430px;
+            font-size: 1vw;
+            margin-top: 20px;
+            background-color: 	 blue;
+            border: none;
+            color: white;
+
+        }
+        #ulname{
+            list-style-type: none;
+            overflow: auto;
+            height: 350px;
+            
+            
+        }
+        li{
+            background-color:	 #ffffff;
+            border-color: 	 blue;
+            margin-top: 10px;
+            margin-right: 150px;
+            font-size: 1vw;
+            padding:10px ;
+            margin-left: 80px;
+            
+
+
+        }
+        .h2{
+            margin-left: 250px;
+        }
+
+
+
+
+    </style>
+
+    <body>
+        <form onsubmit="submithandler()">
+            <div id="div1"><br><br>
+                <h2 class="h2">TASK MANAGER</h2>
+                <input type="text" name="" id="input1" placeholder="Add Task"><br>
+                <button id="button1" type="submit"><b>ADD</b></button><br>
+                
+                <ul id="ulname"></ul>
+                </div>
+           
+        </form>
+
+        <script>
+
+            let taskadder=[];
+
+            function submithandler(){
+                event.preventDefault();
+
+                // input area
+
+                let first=document.getElementById("input1");
+                
+
+                // now we calling the empty arry push is used to add value one by one
+                taskadder.push(first.value);
+
+                // to create empty string
+
+                let task="";
+
+                // here we use for loop concept for adding a task
+
+                for( let i=0; i<taskadder.length; i++){
+                    let newtask="<li>" +taskadder[i] +"</li>";
+                    task=task+newtask;
+                    
+                }
+
+                let ultag=document.getElementById("ulname");
+                ultag.innerHTML=task;
+                
+
+
+            }
+
+        </script>
+    </body>
+</html>
